@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# Textualize
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Textualize Logo](public/vite.svg)
 
-Currently, two official plugins are available:
+Textualize is a privacy-focused desktop application that analyzes your messages to reveal their true meaning. All analysis happens locally on your device - your messages never leave your computer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Privacy-First Design**: All analysis happens locally on your Mac - your messages never leave your device
+- **Open Source**: Our code is open source and available on GitHub
+- **No Third-Party Access**: Your data remains completely private
+- **No Servers**: We don't store any data on our servers (we don't have any)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Download
+
+Textualize is currently available for macOS (both Apple Silicon and Intel chips).
+
+[![Download for Mac](https://img.shields.io/badge/Download_for_Mac-007AFF?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/jweinstein2/textualize/releases/latest)
+
+### System Requirements
+
+- macOS 10.15 (Catalina) or later
+- Apple Silicon (M1/M2/M3) or Intel processor
+
+## Development
+
+This repository contains the web landing page for Textualize. The actual application is in a separate repository.
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn
+
+### Deployment
+
+This site is deployed to GitHub Pages:
+
+```bash
+npm run deploy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## License
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Contact
+
+- GitHub Issues: [Report a bug](https://github.com/jweinstein2/textualize/issues/new?labels=bug&template=bug_report.md) or [Request a feature](https://github.com/jweinstein2/textualize/issues/new?labels=enhancement&template=feature_request.md)
+- Email: jaredweinstein1+textualize@gmail.com
+
