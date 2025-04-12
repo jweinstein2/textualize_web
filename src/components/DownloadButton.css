@@ -29,12 +29,14 @@
   font-size: 1.5em;
   font-weight: 600;
   min-width: 300px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
+  transform-origin: center;
 }
 
 .download-button:hover {
   color: white;
   background-color: #1d4ed8;
+  transform: scale(1.05);
 }
 
 .platform-icon {

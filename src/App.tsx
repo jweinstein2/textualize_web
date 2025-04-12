@@ -1,11 +1,15 @@
-import DownloadButton from './components/DownloadButton'
 import './App.css'
+import Hero from "./components/Hero"
+import Privacy from './components/Privacy'
+import Footer from './components/Footer'
+import DownloadButton from './components/DownloadButton'
 
 function App() {
   return (
     <div className="container">
-      <h1>Textualize</h1>
-      <DownloadButton />
+      <Hero />
+      <Privacy />
+      <Footer />
     </div>
   )
 }

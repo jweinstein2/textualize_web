@@ -50,7 +50,11 @@ async function checkArchitecture(): Promise<Platform> {
     return Platform.Other
 }
 
-export default function DownloadButton() {
+interface DownloadButtonProps {
+    showAllDownload?: boolean
+}
+
+export default function DownloadButton({ showAllDownload = true }: DownloadButtonProps) {
   const [architecture, setArchitecture] = useState<Platform | undefined>(undefined)
   const [siliconDownloadUrl, setSiliconDownloadUrl ] = useState<string>()
   const [intelDownloadUrl, setIntelDownloadUrl] = useState<string>()
@@ -103,9 +107,10 @@ export default function DownloadButton() {
                <img src={appleLogo} alt="apple logo" className="platform-icon" />
                Download for Mac - {architecture}
            </a>
-            <a href={"https://github.com/jweinstein2/textualize/releases/latest"}>
-                [See all download options]
-            </a>
+            {showAllDownload ? (
+                <a href={"https://github.com/jweinstein2/textualize/releases/latest"}>
+                    [See all download options]
+                </a>) : <></>}
        </div>
   )
 }
