@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { usePostHog } from 'posthog-js/react'
 import './DownloadButton.css'
 import appleLogo from '../assets/apple-logo.svg'
 
@@ -59,6 +60,8 @@ export default function DownloadButton({ showAllDownload = true }: DownloadButto
   const [siliconDownloadUrl, setSiliconDownloadUrl ] = useState<string>()
   const [intelDownloadUrl, setIntelDownloadUrl] = useState<string>()
 
+  const posthog = usePostHog();
+
   useEffect(() => {
     checkArchitecture().then(setArchitecture)
   }, [])
@@ -100,15 +103,22 @@ export default function DownloadButton({ showAllDownload = true }: DownloadButto
     )
   }
 
+  function logPosthog(action: string) {
+    return () => {
+      posthog.capture("download", { architecture, action })
+    }
+  }
+
   const currentHref = architecture === Platform.Arm64 ? siliconDownloadUrl : intelDownloadUrl
   return (
        <div className="button-container">
-           <a href={currentHref} className="download-button">
+           <a href={currentHref} className="download-button" onClick={logPosthog("download")}>
                <img src={appleLogo} alt="apple logo" className="platform-icon" />
                Download for Mac - {architecture}
            </a>
             {showAllDownload ? (
-                <a href={"https://github.com/jweinstein2/textualize/releases/latest"}>
+                <a href={"https://github.com/jweinstein2/textualize/releases/latest"} 
+                    onClick={logPosthog("all_download")}>
                     [See all download options]
                 </a>) : <></>}
        </div>
