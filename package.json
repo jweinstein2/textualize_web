@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
+    "posthog-js": "^1.235.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "ua-parser-js": "^2.0.3"
